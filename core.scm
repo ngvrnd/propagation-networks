@@ -41,3 +41,23 @@
 	    (else
 	     (error "Unknown message " message))))
     me))
+
+;;; Propagators
+
+(define (propagator neighbors to-do)
+ (for-each (lambda (cell)
+	     (new-neighbor! cell to-do))
+	   (listify neighbors))
+ (alert-propagator to-do))
+
+;;; f->p-c imposes convention: list of cells is i1, ..., in, o
+;;; where i's are input cells and o is the single output.
+
+(define (function->propagator-constructor f)
+  (lambda cells
+    (let ((output (car (last-pair cells)))
+	  (inputs (except-last-pair cells)))
+      (propagator inputs
+		  (lambda ()
+		    (add-content output
+				 (apply f (map content inputs))))))))
