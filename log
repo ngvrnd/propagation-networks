@@ -1,0 +1,51 @@
+;Package: (user)
+
+;Value: nothing
+
+;Value: nothing?
+
+;Value: content
+
+;Value: add-content
+
+;Value: new-neighbor
+
+;Value: make-cell
+
+(define foo (make-cell))
+;Value: foo
+
+foo
+;Value 14: #[compound-procedure 14 me]
+
+(content foo)
+
+;Value: content
+
+(foo 'content)
+;Value 15: #(*the-nothing*)
+
+
+
+;Value: nothing
+
+;Value: nothing?
+
+;Value: content
+
+;Value: add-content
+
+;Value: new-neighbor
+
+;Value: make-cell
+
+
+
+
+
+
+
+
+(content foo)
+;Value 15: #(*the-nothing*)
+

@@ -6,7 +6,7 @@
 ;; definition of cells in the message-accepter form.
 
 (define (content cell)
-  cell 'content)
+  (cell 'content))
 
 (define (add-content cell increment)
   ((cell 'add-content) increment))
